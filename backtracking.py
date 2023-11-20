@@ -26,7 +26,7 @@ def backtracking_aux(subsets, s_i, sol, k):
             sol.append(elem)
             return (True, sol, k)
             
-    # Pruebo con todos los elementos del set actual
+    # pruebo con todos los elementos del set actual
     for elem in subsets[s_i]:
         if elem in sol:
             continue
