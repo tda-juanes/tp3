@@ -43,7 +43,7 @@ $C \cap B_i \neq \emptyset$)?
 	de volumen posible). Tomar mediciones de tiempos
 	y compararlas con las del algoritmo que implementa Backtracking. 
 
-6. 	El doctor Bilardo, como buen resultadista que es, le propone a Scaloni el siguiente algoritmo:
+5. 	El doctor Bilardo, como buen resultadista que es, le propone a Scaloni el siguiente algoritmo:
  	usar el mismo algoritmo planteado en el punto 4, pero permitiendo que las variables de decisión
 	sean valores reales, y luego redondear el resultado final del modelo. Para redondear, obtenemos el
 	valor $b$ como la cantidad de aquel conjunto entre los diferentes conjuntos (pedidos de la prensa)
@@ -62,12 +62,12 @@ $C \cap B_i \neq \emptyset$)?
 	que contemplen volúmenes de datos ya inmanejables para el algoritmo exacto,
 	a fin de corroborar empíricamente la cota calculada anteriormente. 
 
-8.	**Opcional**: Implementar alguna otra aproximación (u algoritmo greedy) que 
+6.	**Opcional**: Implementar alguna otra aproximación (u algoritmo greedy) que 
 	les parezca de interés. Comparar sus resultados con los dados por la aproximación 
 	del punto 5. Indicar y justificar su complejidad. No es obligatorio
 	hacer este punto para aprobar el trabajo práctico (pero si resta puntos no hacerlo).
 
-9. 	Agregar cualquier conclusión que parezca relevante.
+7. 	Agregar cualquier conclusión que parezca relevante.
 
 ## Entrega
 
