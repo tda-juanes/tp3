@@ -46,17 +46,17 @@ $C \cap B_i \neq \emptyset$)?
 6. 	El doctor Bilardo, como buen resultadista que es, le propone a Scaloni el siguiente algoritmo:
  	usar el mismo algoritmo planteado en el punto 4, pero permitiendo que las variables de decisión
 	sean valores reales, y luego redondear el resultado final del modelo. Para redondear, obtenemos el
-	valor $$b$$ como la cantidad de aquel conjunto entre los diferentes conjuntos (pedidos de la prensa)
+	valor $b$ como la cantidad de aquel conjunto entre los diferentes conjuntos (pedidos de la prensa)
 	que tenga la mayor cantidad de jugadores, y  definimos que la variables de decisión de cada jugador
-	serán 1 si su valor en el modelo relajado es mayor o igual a $$1/b$$.
+	serán 1 si su valor en el modelo relajado es mayor o igual a $1/b$.
    
 	Este algoritmo sirve como una aproximación para resolver el hitting-set problem. 
 	Implementar dicho algoritmo, analizar su complejidad
 	y analizar cuán buena aproximación es. Para esto, considerar lo siguiente: 
-	Sea $$I$$ una instancia cualquiera del Hitting-Set Problem, y $$z(I)$$ una
-	solución óptima para dicha instancia, y sea $$A(I)$$ la solución aproximada, 
-	se define $$\frac{A(I)}{z(I)} \leq r(A)$$ para todas las instancias posibles. 
-	Calcular $$r(A)$$ para el algoritmo dado, demostrando que la cota está bien
+	Sea $I$ una instancia cualquiera del Hitting-Set Problem, y $z(I)$ una
+	solución óptima para dicha instancia, y sea $A(I)$ la solución aproximada, 
+	se define $\frac{A(I)}{z(I)} \leq r(A)$ para todas las instancias posibles. 
+	Calcular $r(A)$ para el algoritmo dado, demostrando que la cota está bien
 	calculada. Realizar mediciones utilizando el algoritmo exacto y la aproximación,
 	con el objetivo de verificar dicha relación. Realizar también mediciones
 	que contemplen volúmenes de datos ya inmanejables para el algoritmo exacto,
