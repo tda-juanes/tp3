@@ -15,6 +15,7 @@
 # Perrone,Senesi,Pellegrino,Almada
 # 
 # Cantidad mínima: 10 (Nico González, Correa, Senesi, Lautaro, Paredes, Armani, Montiel, Messi, Cuti, Mac Allister)
+import sys
 
 def intersects(subset, sol):
     for elem in subset:
@@ -23,24 +24,27 @@ def intersects(subset, sol):
     return False
 
 def backtracking_aux(subsets, s_i, sol, k):
-    # print(sol, k)
     if intersects(subsets[s_i], sol): 
         if s_i == len(subsets) - 1:
-            # print("solucion encontrada")
             return (True, sol, k)
         else:
-            # print("Ya hay interseccion, sigo al siguiente subset")
             return backtracking_aux(subsets, s_i + 1, sol, k)
     
-    if len(sol) >= k or s_i == len(subsets) - 1:
-        # print("No hay solucion posible, marcha atras")
+    if len(sol) >= k:
         return (False, sol, k)
     
+    # caso borde, solo se da en 10_todos.txt
+    if s_i == len(subsets) - 1:
+        for elem in subsets[s_i]:
+            if elem in sol:
+                continue
+            sol.append(elem)
+            return (True, sol, k)
+            
     # Pruebo con todos los elementos del set actual
     for elem in subsets[s_i]:
         if elem in sol:
             continue
-        # print("pruebo agregando elemento")
         n_sol = sol.copy()
         n_sol.append(elem)
         (valid, n_sol, k) = backtracking_aux(subsets, s_i + 1, n_sol, k)
@@ -61,7 +65,11 @@ def backtracking(subsets):
     return None
     
 def main():
-    file = open("./test/200.txt", "r")
+    if len(sys.argv) != 2:
+        print("Uso: python3 backtracking.py <archivo>")
+        return
+    
+    file = open(sys.argv[1], "r")
     
     subsets = []    
     for line in file.readlines():
