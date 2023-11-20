@@ -3,18 +3,18 @@
 
 # Los archivos tienen 1 conjunto (pedido de la prensa) por línea, separdos por ", ".
 # 
-# Colidio,Barcon't,Palermo,Pity Martinez
-# Soule,Dibu,Chiquito Romero
-# Beltran,Buonanotte,Mauro Zarate
-# Armani,Pity Martinez,Beltran,Luka Romero
-# Pezzella,Dibu,Buendia,Tucu Pereyra
-# Riquelme,Langoni,Wachoffisde Abila
-# Casco,Cuti Romero,Dybala
-# Pezzella,Palermo,Colo Barco,El fantasma de la B
-# Barcon't,Luka Romero,Colo Barco,Dybala
-# Di Maria,Burrito Ortega,Changuito Zeballos
+# Dibu,Rulli,Armani
+# Cuti,Licha,Pezella,Otamendi
+# Molina,Montiel,Acuña,Tagliafico
+# Guido Rodriguez,Enzo,Mac Allister,De Paul
+# Paredes,Martinez Quarta,Lo Celso
+# Palacios,Julian,Nico González
+# Messi
+# Garnacho,Ocampos,Correa
+# Lautaro,Walter Benitez,Juan Musso,Medina
+# Perrone,Senesi,Pellegrino,Almada
 # 
-# Cantidad mínima: 6 (Riquelme, Dibu, Beltran, Dybala, Di Maria, Palermo)
+# Cantidad mínima: 10 (Nico González, Correa, Senesi, Lautaro, Paredes, Armani, Montiel, Messi, Cuti, Mac Allister)
 
 def intersects(subset, sol):
     for elem in subset:
@@ -51,8 +51,7 @@ def backtracking_aux(subsets, s_i, sol, k):
 
 def backtracking(subsets):
     initial_set = subsets[0]
-    print(initial_set)
-    for i in range(1, 10):
+    for i in range(1, len(subsets)+1):
         for j in initial_set:
             sol = [j]
             (valid, sol, k) = backtracking_aux(subsets, 1, sol, i)
