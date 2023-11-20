@@ -1,20 +1,5 @@
 # Escribir un algoritmo que, por backtracking, obtenga la solución óptima al problema. 
 # Generar sets de datos para corroborar su correctitud, así como tomar mediciones de tiempos.
-
-# Los archivos tienen 1 conjunto (pedido de la prensa) por línea, separdos por ", ".
-# 
-# Dibu,Rulli,Armani
-# Cuti,Licha,Pezella,Otamendi
-# Molina,Montiel,Acuña,Tagliafico
-# Guido Rodriguez,Enzo,Mac Allister,De Paul
-# Paredes,Martinez Quarta,Lo Celso
-# Palacios,Julian,Nico González
-# Messi
-# Garnacho,Ocampos,Correa
-# Lautaro,Walter Benitez,Juan Musso,Medina
-# Perrone,Senesi,Pellegrino,Almada
-# 
-# Cantidad mínima: 10 (Nico González, Correa, Senesi, Lautaro, Paredes, Armani, Montiel, Messi, Cuti, Mac Allister)
 import sys
 
 def intersects(subset, sol):
