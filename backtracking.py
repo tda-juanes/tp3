@@ -20,8 +20,6 @@ def hitting_set_k(subsets, s_i, sol, k):
 
     # pruebo con todos los elementos del set actual
     for elem in subsets[s_i]:
-        if elem in sol:
-            continue
         sol.append(elem)
         n_sol = hitting_set_k(subsets, s_i + 1, sol, k)
         if n_sol is not None:
