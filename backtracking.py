@@ -29,6 +29,9 @@ def hitting_set_k(subsets, s_i, sol, k):
     return None
 
 def hitting_set(subsets):
+    # no es necesario, pero ayuda a encontrar la solucion mas rapido
+    subsets.sort(key=len)
+
     for i in range(1, len(subsets)):
         sol = hitting_set_k(subsets, 0, [], i)
         if sol is not None:
@@ -45,9 +48,6 @@ if __name__ == "__main__":
     else:
         with open(sys.argv[1], "r") as f:
             subsets = parse_subsets(f)
-
-    # no es necesario, pero ayuda a encontrar la solucion mas rapido
-    subsets.sort(key=len)
 
     sol, k = hitting_set(subsets)
     print(f"{k = }")
