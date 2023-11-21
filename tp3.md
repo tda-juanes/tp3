@@ -29,7 +29,7 @@ realidad este es un problema conocido (viejo zorro como es, ya se comió todas
 las operetas de prensa así que se conoce este problema de memoria). Se sirvió
 una copa de Gatorei y le comentó:
 
-"Esto no es más que un caso particular del Hitting-Set Problem. El cual es:
+"Esto no es más que un caso particular del _Hitting-Set Problem_. El cual es:
 Dado un conjunto $A$ de $n$ elementos y $m$ subconjuntos $B_1, B_2, ..., B_m$
 de $A$ ($B_i \subseteq A \forall i$) , queremos el subconjunto $C \subseteq A$
 de menor tamaño tal que $C$ tenga al menos un elemento de cada $B_i$ (es decir,
@@ -43,17 +43,18 @@ ayuda para ver si obtener este subconjunto se puede hacer de forma eficiente
 
 ## Consigna
 
-Para los primeros dos puntos, considerar la versión de decisión del Hitting-Set
-Problem:
+Para los primeros dos puntos, considerar la versión de decisión del
+_Hitting-Set Problem_:
 
 Dado un conjunto de elemento $A$ de $n$ elementos, $m$ subconjuntos $B_1, B_2,
 ..., B_m$ de $A$ ($B_i \subseteq A \forall i$), y un número $k$, ¿existe un
 subconjunto $C \subseteq A$ con $|C| \leq k$ tal que $C$ tenga al menos un
 elemento de cada $B_i$ (es decir, $C \cap B_i \neq \emptyset$)?
 
-1. Demostrar que el Hitting-Set Problem se encuentra en NP.
+1. Demostrar que el _Hitting-Set Problem_ se encuentra en NP.
 
-2. Demostrar que el Hitting-Set Problem es, en efecto, un problema NP-Completo.
+2. Demostrar que el _Hitting-Set Problem_ es, en efecto, un problema
+   NP-Completo.
 
 3. Escribir un algoritmo que, por backtracking, obtenga la solución óptima al
    problema. Generar sets de datos para corroborar su correctitud, así como
@@ -77,7 +78,7 @@ elemento de cada $B_i$ (es decir, $C \cap B_i \neq \emptyset$)?
    Este algoritmo sirve como una aproximación para resolver el hitting-set
    problem. Implementar dicho algoritmo, analizar su complejidad y analizar
    cuán buena aproximación es. Para esto, considerar lo siguiente: Sea $I$ una
-   instancia cualquiera del Hitting-Set Problem, y $z(I)$ una solución óptima
+   instancia cualquiera del _Hitting-Set Problem_, y $z(I)$ una solución óptima
    para dicha instancia, y sea $A(I)$ la solución aproximada, se define
    $\frac{A(I)}{z(I)} \leq r(A)$ para todas las instancias posibles. Calcular
    $r(A)$ para el algoritmo dado, demostrando que la cota está bien calculada.
@@ -86,8 +87,8 @@ elemento de cada $B_i$ (es decir, $C \cap B_i \neq \emptyset$)?
    contemplen volúmenes de datos ya inmanejables para el algoritmo exacto, a
    fin de corroborar empíricamente la cota calculada anteriormente.
 
-6. **Opcional**: Implementar alguna otra aproximación (u algoritmo greedy) que
-   les parezca de interés. Comparar sus resultados con los dados por la
+6. **Opcional**: Implementar alguna otra aproximación (u algoritmo _greedy_)
+   que les parezca de interés. Comparar sus resultados con los dados por la
    aproximación del punto 5. Indicar y justificar su complejidad. No es
    obligatorio hacer este punto para aprobar el trabajo práctico (pero si resta
    puntos no hacerlo).
