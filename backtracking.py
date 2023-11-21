@@ -48,12 +48,10 @@ def main():
 
     file = open(sys.argv[1], "r")
 
-    subsets = []
-    for line in file.readlines():
-        subsets.append(line.strip().split(","))
-    subsets = sorted(subsets, key=lambda x: len(x)) # no es necesario,
-                                                    # pero ayuda a encontrar
-                                                    # la solucion mas rapido
+    subsets = [line.strip().split(",") for line in file]
+    subsets.sort(key=len) # no es necesario,
+                          # pero ayuda a encontrar
+                          # la solucion mas rapido
 
     sol = backtracking(subsets)
     print(sol)
