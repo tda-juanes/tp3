@@ -15,19 +15,17 @@ def is_hitting_set(A, B, P):
 
 El algoritmo es de tiempo polinomial ya que la maxima cantidad de subsets $B$ es $m$ y la máxima cantidad de elementos en $P$ es $k \leq n$, por lo tanto la complejidad es $O(n^2)$.
 
-## Demostrar que el Hitting-Set Problem es, en efecto, un problema NP-Completo.
+## Demostrar que el Hitting-Set Problem es NP-Completo.
 
 Demostrar que el problema es NP-completo, ya habiendo demostrado que pertenece a NP, nos queda por demostrar que es NP-hard. Para esto reduciremos un problema NP-completo a nuestro problema, [Vertex Cover](https://en.wikipedia.org/wiki/Vertex_cover).
 
 Vertex cover nos dice que dado un grafo $G = (V, E)$, existe un vertex cover $V' \subseteq V$ tal que para todo $(u, v) \in E$, $u \in V'$ o $v \in V'$.
-El input de un problema de vertex cover es un grafo $G = (V, E)$ y un número $k$, para transformarlo a un problema de hitting set, por cada arista $(u, v) \in E$ creamos un subset $B_i = \{u, v\}$. Esto lo realizamos en tiempo polinomial $O(|E|)$.
+El input de un problema de vertex cover es un grafo $G = (V, E)$ y un número $k$, para transformarlo a un problema de hitting set, por cada arista $(u, v) \in E$ creamos un subset $B_i = \lbrace u, v \rbrace$. Esto lo realizamos en tiempo polinomial $O(|E|)$.
 
 ```python
 def vertex_cover_to_hitting_set(G, k):
     A = G.V
-    B = []
-    for (u, v) in G.E:
-        B.append({u, v})
+    B = [{u, v} for (u, v) in G.E]
     return A, B, k
 ```
 
