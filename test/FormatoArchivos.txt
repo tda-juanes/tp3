@@ -1,1 +1,2 @@
-Los archivos tienen 1 conjunto (pedido de la prensa) por línea, separdos por ", ".
+Los archivos de prueba tienen un conjunto (pedido de la prensa) por línea,
+separados por ','.
