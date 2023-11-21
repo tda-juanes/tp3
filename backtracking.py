@@ -11,43 +11,35 @@ def intersects(subset, sol):
 def backtracking_aux(subsets, s_i, sol, k):
     if intersects(subsets[s_i], sol):
         if s_i == len(subsets) - 1:
-            return (True, sol, k)
+            return sol
         else:
             return backtracking_aux(subsets, s_i + 1, sol, k)
 
     if len(sol) >= k:
-        return (False, sol, k)
-
-    # caso borde, solo se da en 10_todos.txt
-    if s_i == len(subsets) - 1:
-        for elem in subsets[s_i]:
-            if elem in sol:
-                continue
-            sol.append(elem)
-            return (True, sol, k)
+        return None
 
     # pruebo con todos los elementos del set actual
     for elem in subsets[s_i]:
         if elem in sol:
             continue
-        n_sol = sol.copy()
-        n_sol.append(elem)
-        (valid, n_sol, k) = backtracking_aux(subsets, s_i + 1, n_sol, k)
-        if valid:
-            return (True, n_sol, k)
-
-    return (False, sol, k)
-
-def backtracking(subsets):
-    initial_set = subsets[0]
-    for i in range(1, len(subsets)+1):
-        for j in initial_set:
-            sol = [j]
-            (valid, sol, k) = backtracking_aux(subsets, 1, sol, i)
-            if valid:
-                return (sol, k)
+        sol.append(elem)
+        n_sol = backtracking_aux(subsets, s_i + 1, sol, k)
+        if n_sol is not None:
+            return n_sol
+        sol.pop()
 
     return None
+
+def backtracking(subsets):
+    if not subsets:
+        return subsets, 0
+
+    for i in range(len(subsets)):
+        sol = backtracking_aux(subsets, 0, [], i)
+        if sol is not None:
+            return sol, i
+
+    return [subset[0] for subset in subsets], len(subsets)
 
 def main():
     if len(sys.argv) != 2:
