@@ -41,19 +41,16 @@ def backtracking(subsets):
 
     return [subset[0] for subset in subsets], len(subsets)
 
-def main():
-    if len(sys.argv) != 2:
-        print("Uso: python3 backtracking.py <archivo>")
-        return
+if __name__ == "__main__":
+    if len(sys.argv) != 2 or sys.argv[1] == '-':
+        subsets = [line.strip().split(",") for line in sys.stdin]
+    else:
+        with open(sys.argv[1], "r") as f:
+            subsets = [line.strip().split(",") for line in f]
 
-    file = open(sys.argv[1], "r")
-
-    subsets = [line.strip().split(",") for line in file]
     subsets.sort(key=len) # no es necesario,
                           # pero ayuda a encontrar
                           # la solucion mas rapido
 
     sol = backtracking(subsets)
     print(sol)
-
-main()
