@@ -31,9 +31,6 @@ def hitting_set_k(subsets, s_i, sol, k):
     return None
 
 def hitting_set(subsets):
-    if not subsets:
-        return subsets, 0
-
     for i in range(len(subsets)):
         sol = hitting_set_k(subsets, 0, [], i)
         if sol is not None:
