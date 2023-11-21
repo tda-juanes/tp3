@@ -48,9 +48,9 @@ if __name__ == "__main__":
         with open(sys.argv[1], "r") as f:
             subsets = [line.strip().split(",") for line in f]
 
-    subsets.sort(key=len) # no es necesario,
-                          # pero ayuda a encontrar
-                          # la solucion mas rapido
+    # no es necesario, pero ayuda a encontrar la solucion mas rapido
+    subsets.sort(key=len)
 
-    sol = backtracking(subsets)
-    print(sol)
+    sol, k = backtracking(subsets)
+    print(f"{k = }")
+    print(*sol, sep=", ")
