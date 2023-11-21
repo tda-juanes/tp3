@@ -8,12 +8,12 @@ def intersects(subset, sol):
             return True
     return False
 
-def backtracking_aux(subsets, s_i, sol, k):
+def hitting_set_k(subsets, s_i, sol, k):
     if intersects(subsets[s_i], sol):
         if s_i == len(subsets) - 1:
             return sol
         else:
-            return backtracking_aux(subsets, s_i + 1, sol, k)
+            return hitting_set_k(subsets, s_i + 1, sol, k)
 
     if len(sol) >= k:
         return None
@@ -23,19 +23,19 @@ def backtracking_aux(subsets, s_i, sol, k):
         if elem in sol:
             continue
         sol.append(elem)
-        n_sol = backtracking_aux(subsets, s_i + 1, sol, k)
+        n_sol = hitting_set_k(subsets, s_i + 1, sol, k)
         if n_sol is not None:
             return n_sol
         sol.pop()
 
     return None
 
-def backtracking(subsets):
+def hitting_set(subsets):
     if not subsets:
         return subsets, 0
 
     for i in range(len(subsets)):
-        sol = backtracking_aux(subsets, 0, [], i)
+        sol = hitting_set_k(subsets, 0, [], i)
         if sol is not None:
             return sol, i
 
@@ -51,6 +51,6 @@ if __name__ == "__main__":
     # no es necesario, pero ayuda a encontrar la solucion mas rapido
     subsets.sort(key=len)
 
-    sol, k = backtracking(subsets)
+    sol, k = hitting_set(subsets)
     print(f"{k = }")
     print(*sol, sep=", ")
