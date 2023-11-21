@@ -38,12 +38,15 @@ def hitting_set(subsets):
 
     return [subset[0] for subset in subsets], len(subsets)
 
+def parse_subsets(f):
+    return [s.split(',') for line in f for s in [line.strip()] if s]
+
 if __name__ == "__main__":
     if len(sys.argv) != 2 or sys.argv[1] == '-':
-        subsets = [line.strip().split(",") for line in sys.stdin]
+        subsets = parse_subsets(sys.stdin)
     else:
         with open(sys.argv[1], "r") as f:
-            subsets = [line.strip().split(",") for line in f]
+            subsets = parse_subsets(f)
 
     # no es necesario, pero ayuda a encontrar la solucion mas rapido
     subsets.sort(key=len)
