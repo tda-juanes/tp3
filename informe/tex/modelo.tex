@@ -5,10 +5,8 @@
 \subsubsection{Variables}
 
 \begin{center}
-    $A_j$ := Variable binaria, determina si el elemento $A_i$ forma parte de la
-    soluci\'on.
-
-    $B_{i_j}$ := Variable binaria ligada a su correspondiente $A_j$.
+    $Y_i$ := Variables binarias, indican si el elemento $A_{Y_i}$ forma parte
+    de la soluci\'on. \\ (una por cada elemento en $A$)
 \end{center}
 
 \subsection{Modelo}
@@ -16,12 +14,12 @@
 \subsubsection{Restricciones}
 
 \begin{equation}
-    \sum_{j=1}^{|B_i|} B_{i_j} \ge 1 \qquad \forall \quad B_i \in B
+    \sum_{Y \in B_i} Y \ge 1 \qquad \forall \quad B_i \in B
 \end{equation}
 
 \subsubsection{Funcional}
 
 \begin{equation}
-    \min \{ \sum_{j=1}^{|A|} A_j \}
+    \min \{ \sum_{Y \in A} Y \}
 \end{equation}
 
