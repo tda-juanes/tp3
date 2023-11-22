@@ -35,9 +35,9 @@ def hitting_set(subsets):
     for i in range(1, len(subsets)):
         sol = hitting_set_k(subsets, 0, [], i)
         if sol is not None:
-            return sol, i
+            return sol
 
-    return [subset[0] for subset in subsets], len(subsets)
+    return [subset[0] for subset in subsets]
 
 def parse_subsets(f):
     return [s.split(',') for line in f for s in [line.strip()] if s]
@@ -49,6 +49,6 @@ if __name__ == "__main__":
         with open(sys.argv[1], "r") as f:
             subsets = parse_subsets(f)
 
-    sol, k = hitting_set(subsets)
-    print(f"{k = }")
+    sol = hitting_set(subsets)
+    print(f"k = {len(sol)}")
     print(*sol, sep=", ")
