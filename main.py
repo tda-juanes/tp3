@@ -1,8 +1,8 @@
 # Escribir un algoritmo greedy que obtenga la solución óptima al problema.
 # Generar sets de datos para corroborar su correctitud, así como tomar mediciones de tiempos.
 import sys
-import backtracking
-import greedy
+import lib.backtracking
+import lib.greedy
 
 def parse_subsets(f):
     return [s.split(',') for s in map(str.strip, f) if s]
@@ -19,8 +19,8 @@ if __name__ == "__main__":
 
     if approx:
         A = {elem for subset in subsets for elem in subset}
-        sol = greedy.hitting_set(A, subsets)
+        sol = lib.greedy.hitting_set(A, subsets)
     else:
-        sol = backtracking.hitting_set(subsets)
+        sol = lib.backtracking.hitting_set(subsets)
     print(f"k = {len(sol)}")
     print(*sol, sep=", ")

@@ -1,7 +1,5 @@
 # Escribir un algoritmo que, por backtracking, obtenga la solución óptima al problema.
 # Generar sets de datos para corroborar su correctitud, así como tomar mediciones de tiempos.
-import sys
-
 def intersects(subset, sol):
     for elem in subset:
         if elem in sol:
@@ -38,17 +36,3 @@ def hitting_set(subsets):
             return sol
 
     return [subset[0] for subset in subsets]
-
-def parse_subsets(f):
-    return [s.split(',') for line in f for s in [line.strip()] if s]
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2 or sys.argv[1] == '-':
-        subsets = parse_subsets(sys.stdin)
-    else:
-        with open(sys.argv[1], "r") as f:
-            subsets = parse_subsets(f)
-
-    sol = hitting_set(subsets)
-    print(f"k = {len(sol)}")
-    print(*sol, sep=", ")
