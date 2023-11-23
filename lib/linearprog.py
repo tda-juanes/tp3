@@ -2,8 +2,8 @@ import pulp
 from pulp import LpVariable, LpProblem, lpSum, LpMinimize
 
 def hitting_set(A, subsets, category):
-    binary_vars = {item: LpVariable(item, cat=category) for item in A}
-    problem = LpProblem('Hitting Set', LpMinimize)
+    binary_vars = {item: LpVariable(f'Y{i}', cat=category) for i, item in enumerate(A, 1)}
+    problem = LpProblem('Hitting_Set', LpMinimize)
 
     for subset in subsets:
         subset_items = list(map(binary_vars.get, subset))
