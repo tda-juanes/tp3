@@ -1,6 +1,6 @@
-# Escribir un algoritmo greedy que obtenga la solución óptima al problema.
-# Generar sets de datos para corroborar su correctitud, así como tomar mediciones de tiempos.
-
+"""
+Algorítmo greedy que encuentra una solución aproximada.
+"""
 def hitting_set(A, subsets):
     frequencies = {item: 0 for item in A}
     for subset in subsets:

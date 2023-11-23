@@ -1,5 +1,3 @@
-# Escribir un algoritmo greedy que obtenga la solución óptima al problema.
-# Generar sets de datos para corroborar su correctitud, así como tomar mediciones de tiempos.
 import sys
 import lib.backtracking
 import lib.greedy
@@ -23,8 +21,8 @@ if __name__ == "__main__":
             exit(1)
 
     if '--approx' in sys.argv or '--greedy' in sys.argv:
-        A = {elem for subset in subsets for elem in subset}
-        sol = lib.greedy.hitting_set(A, subsets)
+        universal_set = set(sum(subsets, start=[]))
+        sol = lib.greedy.hitting_set(universal_set, subsets)
     else:
         sol = lib.backtracking.hitting_set(subsets)
     print(f"k = {len(sol)}")

@@ -1,5 +1,3 @@
-# Escribir un algoritmo que, por backtracking, obtenga la solución óptima al problema.
-# Generar sets de datos para corroborar su correctitud, así como tomar mediciones de tiempos.
 def intersects(subset, sol):
     for elem in subset:
         if elem in sol:
@@ -24,6 +22,9 @@ def hitting_set_k(subsets, s_i, sol, k):
             return new_sol
         sol.pop()
 
+"""
+Algoritmo por backtracking que encuentra la solución óptima al problema.
+"""
 def hitting_set(subsets):
     # no es necesario, pero ayuda a encontrar la solucion mas rapido
     subsets.sort(key=len)
