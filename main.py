@@ -10,14 +10,19 @@ def parse_subsets(f):
 if __name__ == "__main__":
     match sys.argv:
         case [*_, '-'] | [_, '--approx' | '--greedy' | '--exact'] | [_]:
-            approx = '--approx' in sys.argv or '--greedy' in sys.argv
             subsets = parse_subsets(sys.stdin)
-        case [*_, filename]:
-            approx = '--approx' in sys.argv or '--greedy' in sys.argv
+        case [*_, filename] if not filename.startswith('--'):
             with open(filename, "r") as f:
                 subsets = parse_subsets(f)
+        case _:
+            print(
+                "Usage:",
+                f"    {sys.argv[0]} [--approx | --greedy | --exact] [filename]",
+                file=sys.stderr, sep='\n'
+            )
+            exit(1)
 
-    if approx:
+    if '--approx' in sys.argv or '--greedy' in sys.argv:
         A = {elem for subset in subsets for elem in subset}
         sol = lib.greedy.hitting_set(A, subsets)
     else:
