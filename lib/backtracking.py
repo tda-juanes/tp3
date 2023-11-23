@@ -14,24 +14,22 @@ def hitting_set_k(subsets, s_i, sol, k):
             return hitting_set_k(subsets, s_i + 1, sol, k)
 
     if len(sol) >= k:
-        return None
+        return
 
     # pruebo con todos los elementos del set actual
     for elem in subsets[s_i]:
         sol.append(elem)
-        n_sol = hitting_set_k(subsets, s_i + 1, sol, k)
-        if n_sol is not None:
-            return n_sol
+        new_sol = hitting_set_k(subsets, s_i + 1, sol, k)
+        if new_sol is not None:
+            return new_sol
         sol.pop()
-
-    return None
 
 def hitting_set(subsets):
     # no es necesario, pero ayuda a encontrar la solucion mas rapido
     subsets.sort(key=len)
 
-    for i in range(1, len(subsets)):
-        sol = hitting_set_k(subsets, 0, [], i)
+    for k in range(1, len(subsets)):
+        sol = hitting_set_k(subsets, 0, [], k)
         if sol is not None:
             return sol
 
