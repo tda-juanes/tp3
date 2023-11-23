@@ -1,5 +1,3 @@
-import lib.greedy
-
 def intersects(subset, sol):
     for elem in subset:
         if elem in sol:
@@ -31,9 +29,20 @@ def hitting_set(A, subsets):
     # no es necesario, pero ayuda a encontrar la solucion mas rapido
     subsets.sort(key=len)
 
-    best_solution = lib.greedy.hitting_set(A, subsets)
+    frequencies = {item: 0 for item in A}
+    for subset in subsets:
+        for item in subset:
+            frequencies[item] += 1
 
-    while (sol := hitting_set_k(subsets, 0, [], len(best_solution) - 1)):
-        best_solution = sol
+    frequencies = sorted(frequencies.values(), reverse=True)
+    S, k_min = len(subsets), 0
+    while S > 0:
+        S -= frequencies[k_min]
+        k_min += 1
 
-    return best_solution
+    for k in range(k_min, len(subsets)):
+        sol = hitting_set_k(subsets, 0, [], k)
+        if sol is not None:
+            return sol
+
+    return [subset[0] for subset in subsets]
