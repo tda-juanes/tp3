@@ -44,3 +44,11 @@ cota inferior para el $k$ \'optimo:
 
 Adem\'as, si tomamos las variables cuyo valor excede $\frac{1}{b}$ obtenemos
 una soluci\'on aproximada.
+
+\subsubsection{Complejidad}
+
+La complejidad del algoritmo con restricciones relajadas depende del algoritmo
+utilizado por la librer\'ia \texttt{PuLP}. Si se utilizara el m\'etodo simplex,
+si bien es eficiente en la pr\'actica tiene peor caso exponencial. Existen
+otros algoritmos para resolver problemas de programaci\'on lineal que funcionan
+en tiempo polinomial, como el algoritmo de Karmarkar.
