@@ -31,3 +31,16 @@ en el conjunto A.
     \min \{ \sum_{Y \in A} Y \}
 \end{equation}
 
+\subsection{Relajaci\'on}
+
+Si dejamos que las variables $Y_i$ tomen valores reales el nuevo problema puede
+ser resuelto en tiempo polinomial. Con esta soluci\'on podemos calcular una
+cota inferior para el $k$ \'optimo:
+
+\begin{equation}
+    k \ge \ceil{k_r} \qquad \text{con} \ k_r := \text{\'optimo del problema
+    relajado}
+\end{equation}
+
+Adem\'as, si tomamos las variables cuyo valor excede $\frac{1}{b}$ obtenemos
+una soluci\'on aproximada.
