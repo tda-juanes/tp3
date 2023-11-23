@@ -8,15 +8,16 @@ def hitting_set(A, subsets):
             frequencies[item] += 1
 
     solution = []
-    while subsets:
+    missing = list(subsets)
+    while missing:
         item = max(frequencies, key=frequencies.get)
 
         subset_idx = 0
-        while subset_idx < len(subsets):
-            if item in subsets[subset_idx]:
-                for other in subsets[subset_idx]:
+        while subset_idx < len(missing):
+            if item in missing[subset_idx]:
+                for other in missing[subset_idx]:
                     frequencies[other] -= 1
-                subsets.pop(subset_idx)
+                missing.pop(subset_idx)
             else:
                 subset_idx += 1
 
