@@ -13,11 +13,19 @@
 
 \subsubsection{Restricciones}
 
+Necesitamos que haya por lo menos un elemento en cada subset, esto los
+modelamos con una restricci\'on por cada subset que toma la suma de las
+variables asociadas a sus elementos y fuerza a esta a valer por lo menos uno:
+
 \begin{equation}
     \sum_{Y \in B_i} Y \ge 1 \qquad \forall \quad B_i \in B
 \end{equation}
 
 \subsubsection{Funcional}
+
+Estamos tratando de minimizar la cantidad de elementos en el resultado, por lo
+que minimizamos el valor de la suma de las variables asociadas a los elementos
+en el conjunto A.
 
 \begin{equation}
     \min \{ \sum_{Y \in A} Y \}
