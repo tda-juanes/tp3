@@ -1,7 +1,7 @@
 import pulp
 
-def hitting_set(A, subsets, category):
-    binary_vars = {item: pulp.LpVariable(f'Y{i}', cat=category) for i, item in enumerate(A, 1)}
+def hitting_set(A, subsets, **kwargs):
+    binary_vars = {item: pulp.LpVariable(f'Y{i}', **kwargs) for i, item in enumerate(A, 1)}
     problem = pulp.LpProblem('Hitting_Set', pulp.LpMinimize)
 
     for subset in subsets:
@@ -18,7 +18,7 @@ Algoritmo por programación lineal entera que obtiene la solución óptima al
 problema.
 """
 def hitting_set_exact(A, subsets):
-    result = hitting_set(A, subsets, 'Binary')
+    result = hitting_set(A, subsets, cat='Binary')
     return [item for (item, value) in result.items() if value > 0]
 
 """
@@ -27,5 +27,5 @@ problema.
 """
 def hitting_set_approx(A, subsets):
     b = max(map(len, subsets))
-    result = hitting_set(A, subsets, 'Continuous')
+    result = hitting_set(A, subsets, cat='Continuous', lowBound=0, upBound=1)
     return [item for (item, value) in result.items() if value >= 1/b]
