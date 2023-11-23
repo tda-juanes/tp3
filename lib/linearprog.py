@@ -1,17 +1,17 @@
 import pulp
 
 def hitting_set(A, subsets, **kwargs):
-    binary_vars = {item: pulp.LpVariable(f'Y{i}', **kwargs) for i, item in enumerate(A, 1)}
+    variables = {item: pulp.LpVariable(f'Y{i}', **kwargs) for i, item in enumerate(A, 1)}
     problem = pulp.LpProblem('Hitting_Set', pulp.LpMinimize)
 
     for subset in subsets:
-        subset_items = list(map(binary_vars.get, subset))
+        subset_items = list(map(variables.get, subset))
         problem += pulp.lpSum(subset_items) >= 1
 
-    problem += pulp.lpSum(list(binary_vars.values()))
+    problem += pulp.lpSum(list(variables.values()))
     problem.solve()
 
-    return {item: pulp.value(var) for item, var in binary_vars.items()}
+    return {item: pulp.value(var) for item, var in variables.items()}
 
 """
 Algoritmo por programación lineal entera que obtiene la solución óptima al
