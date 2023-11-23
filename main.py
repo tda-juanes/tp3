@@ -5,18 +5,18 @@ def parse_subsets(f):
 
 if __name__ == "__main__":
     match sys.argv:
+        case args if '--help' in args:
+            print(
+                "Usage:",
+                f"    {sys.argv[0]} [--linear] [--approx] [filename]",
+                file=sys.stderr, sep='\n'
+            )
+            exit(0)
         case [*_, filename] if not filename.startswith('-'):
             with open(filename, 'r') as f:
                 subsets = parse_subsets(f)
         case _:
             subsets = parse_subsets(sys.stdin)
-        # case _:
-        #     print(
-        #         "Usage:",
-        #         f"    {sys.argv[0]} [--linear] [--approx] [filename]",
-        #         file=sys.stderr, sep='\n'
-        #     )
-        #     exit(1)
 
     universal_set = set(sum(subsets, start=[]))
 
