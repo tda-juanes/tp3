@@ -27,6 +27,6 @@ Algoritmo por programación lineal que obtiene una solución aproximada al
 problema.
 """
 def hitting_set_approx(A, subsets):
-    result = hitting_set(A, subsets, 'Integer')
-    # todo!()
-    raise NotImplemented
+    b = max(map(len, subsets))
+    result = hitting_set(A, subsets, 'Continuous')
+    return [item for (item, value) in result.items() if value >= 1/b]
