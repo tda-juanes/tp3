@@ -2,25 +2,25 @@
 # Generar sets de datos para corroborar su correctitud, así como tomar mediciones de tiempos.
 
 def hitting_set(A, subsets):
-    frequencies = {elem: 0 for elem in A}
+    frequencies = {item: 0 for item in A}
     for subset in subsets:
-        for elem in subset:
-            frequencies[elem] += 1
+        for item in subset:
+            frequencies[item] += 1
 
     solution = []
     while subsets:
-        e = max(frequencies, key=frequencies.get)
+        item = max(frequencies, key=frequencies.get)
 
-        i = 0
-        while i < len(subsets):
-            if e in subsets[i]:
-                for other in subsets[i]:
+        subset_idx = 0
+        while subset_idx < len(subsets):
+            if item in subsets[subset_idx]:
+                for other in subsets[subset_idx]:
                     frequencies[other] -= 1
-                subsets.pop(i)
+                subsets.pop(subset_idx)
             else:
-                i += 1
+                subset_idx += 1
 
-        del frequencies[e]
-        solution.append(e)
+        del frequencies[item]
+        solution.append(item)
 
     return solution
