@@ -38,10 +38,12 @@ ser resuelto en tiempo polinomial. Con esta soluci\'on podemos calcular una
 cota inferior para el $k$ \'optimo:
 
 \begin{equation}
+    \label{eq:k}
     k \ge \ceil{k_r} \qquad \text{con} \ k_r := \text{\'optimo del problema
     relajado}
 \end{equation}
 
+Esto es porque al relajar las restricciones, la soluci\'on solo puede mejorar.
 Adem\'as, si tomamos las variables cuyo valor excede $\frac{1}{b}$ obtenemos
 una soluci\'on aproximada.
 
@@ -52,3 +54,26 @@ utilizado por la librer\'ia \texttt{PuLP}. Si se utilizara el m\'etodo simplex,
 si bien es eficiente en la pr\'actica tiene peor caso exponencial. Existen
 otros algoritmos para resolver problemas de programaci\'on lineal que funcionan
 en tiempo polinomial, como el algoritmo de Karmarkar.
+
+\subsubsection{Calidad}
+
+Aprovechando la ecuaci\'on \eqref{eq:k}, obtenemos una cota inferior para
+$z(I)$:
+
+\begin{equation*}
+    k_r \le z(I)
+\end{equation*}
+\begin{equation*}
+    k_r b \le z(I) b
+\end{equation*}
+
+Tambi\'en sabemos que nuestra aproximaci\'on $A(I)$, define que las variables
+con valor mayor o igual a $\frac{1}{b}$ ser\'an 1. En el peor caso, todas las
+variables valen $\frac{1}{b}$ y pasan a valer 1, lo que nos deja con una
+funci\'on objetivo a lo sumo $b$ veces peor:
+
+\begin{equation*}
+    A(I) \le k_r b \, \implies \, A(I) \le z(I) b
+\end{equation*}
+
+Si definimos $r(A)$ tal que $\frac{A(I)}{z(I)} \le r(A)$ obtenemos $r(A) = b$.
