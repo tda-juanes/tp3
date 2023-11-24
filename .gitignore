@@ -1,0 +1,5 @@
+informe/texput.log
+informe/main*
+!informe/main.pdf
+!informe/main.tex
+lib/__pycache__
