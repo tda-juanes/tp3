@@ -1,13 +1,19 @@
 \section{Mediciones}
 
-% TODO: explicar mediciones
-Se realizaron mediciones...
+\subsection{Se realizaron comparaciones entre backtracking y programación lineal}
 
-% TODO: mediciones
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{img/tiempos.png}
+    \includegraphics[width=1\textwidth]{img/backvslp.png}
 \end{figure}
 
-% TODO: es exponencial, pero a que tiende?
-Como se puede apreciar, el algoritmo tiende a $\mathcal{O}(?)$.
+Backtracking obtiene mejores tiempo de ejecución que programación lineal para encontrar la solución óptima.
+
+\subsection{Se realizaron comparaciones entre greedy y programación lineal relajada}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/greedyvslprx.png}
+\end{figure}
+
+Greedy demora mucho menos tiempo que programación lineal relajada para encontrar una aproximación, pero la aproximación otorgada es peor.
