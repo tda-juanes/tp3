@@ -32,6 +32,7 @@ def benchmark(r, hitting_set, rango, amount_of_sets, set_size, output):
         timer_end = time.perf_counter()
 
         print(f'{cant_elementos},{timer_end - timer_start}', file=output)
+        print(cant_elementos)
 
 def main():
     if not 3 < len(sys.argv) < 6:
@@ -50,7 +51,9 @@ def main():
     rango = range(*args[2:])
 
     funcs = [hsb, hslp]
+    # funcs = [hsg, hslpr]
     files = ['benchmarks/backtracking.csv', 'benchmarks/linear_prog.csv']
+    # files = ['benchmarks/greedy.csv', 'benchmarks/linear_prog_relaxed.csv']
 
     for func, file in zip(funcs, files):
         with open(file, 'w') as f:
