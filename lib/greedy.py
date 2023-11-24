@@ -2,7 +2,7 @@
 Algorítmo greedy que encuentra una solución aproximada.
 """
 def hitting_set(A, subsets):
-    frequencies = {item: 0 for item in A}
+    frequencies = [0] * len(A)
     for subset in subsets:
         for item in subset:
             frequencies[item] += 1
@@ -10,7 +10,7 @@ def hitting_set(A, subsets):
     solution = []
     missing = list(subsets)
     while missing:
-        item = max(frequencies, key=frequencies.get)
+        item, _ = max(enumerate(frequencies), key=lambda t: t[1])
 
         subset_idx = 0
         while subset_idx < len(missing):
@@ -21,7 +21,6 @@ def hitting_set(A, subsets):
             else:
                 subset_idx += 1
 
-        del frequencies[item]
         solution.append(item)
 
     return solution

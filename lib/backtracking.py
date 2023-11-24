@@ -41,12 +41,12 @@ def hitting_set_old(A, subsets):
     # no es necesario, pero ayuda a encontrar la solucion mas rapido
     subsets.sort(key=len)
 
-    frequencies = {item: 0 for item in A}
+    frequencies = [0] * len(A)
     for subset in subsets:
         for item in subset:
             frequencies[item] += 1
+    frequencies.sort(reverse=True)
 
-    frequencies = sorted(frequencies.values(), reverse=True)
     S, k_min = len(subsets), 0
     while S > 0:
         S -= frequencies[k_min]
