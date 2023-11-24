@@ -3,15 +3,6 @@ import sys
 def parse_subsets(f):
     return [s.split(',') for s in map(str.strip, f) if s]
 
-def run(subsets):
-    # map strings to numbers for faster comparisons
-    universal_set = list(set(sum(subsets, start=[])))
-    subsets = [list(map(universal_set.index, subset)) for subset in subsets]
-    sol = hitting_set(range(len(universal_set)), subsets)
-
-    print(f"k = {len(sol)}")
-    print(", ".join(universal_set[i] for i in sol))
-
 if __name__ == "__main__":
     match sys.argv:
         case args if '--help' in args:
@@ -36,4 +27,11 @@ if __name__ == "__main__":
         from lib.greedy import hitting_set
     else:
         from lib.backtracking import hitting_set
-    run(subsets)
+
+    # map strings to numbers for faster comparisons
+    universal_set = list(set(sum(subsets, start=[])))
+    subsets = [list(map(universal_set.index, subset)) for subset in subsets]
+    sol = hitting_set(range(len(universal_set)), subsets)
+
+    print(f"k = {len(sol)}")
+    print(", ".join(universal_set[i] for i in sol))

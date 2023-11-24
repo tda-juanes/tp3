@@ -1,8 +1,11 @@
 import sys
 import time
-from random import randint, sample
+import random
 
-from main import run
+from lib.backtracking import hitting_set as hsb
+from lib.linearprog import hitting_set_exact as hslp
+# from lib.linearprog import hitting_set_approx as hslpr
+# from lib.greedy import hitting_set as hsg
 
 '''
 Receives a range of natural numbers and for each n in the range
@@ -17,20 +20,21 @@ n_2,time_taken_2
 n_i,time_taken_i
 """
 '''
-def benchmark(rango, amount_of_sets, set_size):
+def benchmark(r, hitting_set, rango, amount_of_sets, set_size, output):
     for cant_elementos in rango:
-        universal = list(range(cant_elementos))
+        universal = range(cant_elementos)
         cant_subsets = int(cant_elementos*amount_of_sets)
-        size = int(set_size*universal)
-        subsets = [sample(universal, size) for _ in range(cant_subsets)]
-        raise NotImplementedError
+        size = int(set_size*cant_elementos)
+        subsets = [r.sample(universal, size) for _ in range(cant_subsets)]
+
         timer_start = time.perf_counter()
-        ### run hitting_set for (universal, subsets)
+        hitting_set(universal, subsets)
         timer_end = time.perf_counter()
-        print(f'{cant_elementos},{timer_end - timer_start}')
+
+        print(f'{cant_elementos},{timer_end - timer_start}', file=output)
 
 def main():
-    if not 1 < len(sys.argv) < 5:
+    if not 3 < len(sys.argv) < 6:
         print(
             'Usage:\n'
             'python3 benchmark.py SET_AMOUNT SET_SIZE STOP\n'
@@ -40,8 +44,17 @@ def main():
             file=sys.stderr
         )
         exit(1)
-    rango = range(*map(int, sys.argv[3:]))
-    benchmark(rango, sys.argv(1), sys.argv(2))
+
+    seed = random.randbytes(16)
+    args = list(map(eval, sys.argv[1:]))
+    rango = range(*args[2:])
+
+    funcs = [hsb, hslp]
+    files = ['benchmarks/backtracking.csv', 'benchmarks/linear_prog.csv']
+
+    for func, file in zip(funcs, files):
+        with open(file, 'w') as f:
+            benchmark(random.Random(seed), func, rango, args[0], args[1], f)
 
 if __name__ == '__main__':
     main()
