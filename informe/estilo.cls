@@ -31,7 +31,7 @@
 
 \RequirePackage{xfp}
 
-% Función para poner los asteriscos
+% Funcion para poner los asteriscos
 \newcommand{\andreas}[5][1.0]{
     \begin{scope}[shift={(#2,#3)},rotate=45,scale=#4,transparency group,opacity=#1]
         \fill[fill=#5] (0,0) -- (0,1) -- (3,1) -- (3,0);
@@ -58,7 +58,7 @@
 }
 
 %------------------------------------------------------------------------------
-%	Función para contar palabras
+%	Funcion para contar palabras
 %------------------------------------------------------------------------------
 %\newcommand{\quickwordcount}[1]{%
 %  \immediate\write18{texcount -1 -sum=1,1,1,0,0,1,1. -merge -q -nobib #1.tex > #1-words.sum }%
@@ -82,9 +82,9 @@
 
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{1pt}
-\rhead{\footnotesize \textsc {Trabajo pr\'actico 3\\ Teor\'ia de Algoritmos}} % Trabajo práctico
+\rhead{\footnotesize \textsc {Trabajo pr\'actico 3\\ Teor\'ia de Algoritmos}} % Trabajo practico
 \lhead{\includegraphics[width=2.5cm]{logo}}
-\cfoot{\small \textsc {Página \thepage\ de \pageref*{LastPage}}}
+\cfoot{\small \textsc {P\'agina \thepage\ de \pageref*{LastPage}}}
 
 \fancypagestyle{firststyle}
  {
@@ -92,7 +92,7 @@
    \renewcommand{\headrulewidth}{0pt}
    % descomentar si les interesa poner la cantidad de palabras:
    %\lfoot{\textit {\quickwordcount{main}}} 
-   %\rfoot{\small \textsc {Página \thepage\ de \pageref*{LastPage}}}
+   %\rfoot{\small \textsc {P\'agina \thepage\ de \pageref*{LastPage}}}
  }
 
 
@@ -108,8 +108,8 @@
 \includegraphics[width=7cm]{logo}
 \\[1cm]
 	\textsc{\Large Teor\'ia de Algoritmos}\\           % Materia
-	\textsc{\small (75.29) Curso Buchwald - Genender}\\[0.4cm]    % Subtítulo materia
-	{ \huge \bfseries Trabajo Pr\'actico 3 \\ Problemas NP-Completos}\\[0.3cm]      % Título
+	\textsc{\small (75.29) Curso Buchwald - Genender}\\[0.4cm]    % Subtitulo materia
+	{ \huge \bfseries Trabajo Pr\'actico 3 \\ Problemas NP-Completos}\\[0.3cm]      % Titulo
 	\andreasline \\[0.2cm]
 	{\large \today  \\[0.4cm]}                          % Fecha
 	\begin{minipage}{0.4\textwidth}
