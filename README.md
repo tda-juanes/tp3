@@ -13,3 +13,5 @@ Ejecutar el programa `main.py` utilizando un archivo de entrada:
 ```bash
 python3 main.py < input.txt
 ```
+
+Ver el command `--help` para saber como ejecutar los distintos algoritmos.
