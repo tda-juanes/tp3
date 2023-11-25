@@ -1,6 +1,3 @@
-"""
-Algorítmo greedy que encuentra una solución aproximada.
-"""
 def hitting_set(A, subsets):
     frequencies = [0] * len(A)
     for subset in subsets:
