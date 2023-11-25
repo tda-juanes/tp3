@@ -28,3 +28,16 @@ encontrar la solución óptima.
 \end{figure}
 
 Notar la diferencia de tiempos (eje y) entre greedy y programación lineal.
+
+\subsection{Cota de la relajaci\'on lineal}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/cota.png}
+\end{figure}
+
+Vemos que $\frac{A(I)}{z(I)}$ se mantiene por debajo de la cota calculada. Cabe
+aclarar que a partir de los 175 elementos se utiliz\'o una cota inferior para
+$z(I)$, por lo que se ve un pico en el gr\'afico a partir de ah\'i, esta cota
+inferior fue calculada por el mismo algoritmo de programaci\'on lineal relajada
+porque los volumenes de datos eran inmanejables para el algoritmo exacto.
