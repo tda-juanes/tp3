@@ -12,7 +12,7 @@ if __name__ == "__main__":
                 file=sys.stderr, sep='\n'
             )
             exit(0)
-        case [*_, filename] if not filename.startswith('-'):
+        case [_, *_, filename] if not filename.startswith('-'):
             with open(filename, 'r') as f:
                 subsets = parse_subsets(f)
         case _:
