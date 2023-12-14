@@ -29,6 +29,35 @@ encontrar la solución óptima.
 
 Notar la diferencia de tiempos (eje y) entre greedy y programación lineal.
 
+\subsubsection{Calidad de las aproximaciones}
+
+Si comparamos el tamaño de la solución que obtenemos utilizando cada algoritmo,
+vemos que el algoritmo greedy provee mejores soluciones que el algoritmo por
+programación lineal relajada, y que dichas soluciones no se alejan mucho del
+óptimo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/quality.png}
+\end{figure}
+
+\subsubsection{Mejoras al algoritmo por programación lineal relajada}
+
+Dado que las soluciones por programación lineal relajada estan tan lejos del
+óptimo, proponemos una mejora al algoritmo. Luego de obtener el valor en el
+óptimo de las variables, tomamos la variable de mayor valor de cada subset,
+priorizando las variables que ya forman parte de la solución, esta aproximación
+es por lo menos tan bueno como la aproximación utilizada anteriormente porque
+el valor de la variable con mayor valor de cada subset siempre es mayor o igual
+a $\frac{1}{b}$, por lo que también forma parte de la solución vieja.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/quality2.png}
+\end{figure}
+
+\newpage
+
 \subsection{Cota de la relajación lineal}
 
 Se realizaron mediciones para verificar la cota calculada empiricamente con un

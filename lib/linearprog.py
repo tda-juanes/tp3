@@ -29,3 +29,22 @@ def hitting_set_approx(A, subsets):
     b = max(map(len, subsets))
     result = hitting_set(A, subsets, cat='Continuous', lowBound=0, upBound=1)
     return [item for (item, value) in enumerate(result) if value >= 1/b]
+
+"""
+Algoritmo por programación lineal que obtiene una solución aproximada al
+problema.
+Luego de calcular los valores de los elementos, toma el elemento de mayor valor
+de cada subset (priorizando elementos que ya fueron utilizados), y con ellos
+genera el resultado.
+"""
+def hitting_set_approx2(A, subsets):
+    b = max(map(len, subsets))
+    result = hitting_set(A, subsets, cat='Continuous', lowBound=0, upBound=1)
+    result = list(result)
+    ret = set()
+    for subset in subsets:
+        _, item = max((result[item], item) for item in subset)
+        # prioriza elementos que ya estan en el resultado
+        result[item] = float('inf')
+        ret.add(item)
+    return list(ret)
