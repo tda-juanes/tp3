@@ -43,9 +43,15 @@ inferior para el $k$ óptimo:
     relajado}
 \end{equation}
 
-Esto es porque al relajar las restricciones, la solución solo puede mejorar.
+Esto se debe a que al relajar las restricciones la solución solo puede mejorar.
+
 Además, si tomamos las variables cuyo valor excede $\frac{1}{b}$, con $b =
-\max_{B_i \in B}(|B_i|)$, obtenemos una solución aproximada.
+\max_{B_i \in B}(|B_i|)$, obtenemos una solución aproximada. Esto es porque la
+suma del valor de las variables de cada subset debe ser por lo menos 1, y hay a
+lo sumo $b$ variables de cada subset, por lo que debe haber por lo menos una
+variable en cada subset cuyo valor es mayor o igual a $\frac{1}{b}$, y al
+utilizar todas las variables de valor mayor o igual a $\frac{1}{b}$ nos
+aseguramos de tener por lo menos una variable de cada subset.
 
 \subsubsection{Complejidad}
 
@@ -58,8 +64,6 @@ tiempo polinomial, como el algoritmo de Karmarkar.
 \subsubsection{Calidad}
 
 \[ \frac{A(I)}{z(I)} \le b \qquad \text{con} \ b := \max_{B_i \in B}(|B_i|) \]
-
-\newpage
 
 \begin{proof}
 
