@@ -5,11 +5,19 @@ Problem} como problema de decisión es NP-Completo, se desarrolla una solución
 con un algoritmo de \textit{Backtracking} para el mismo, como problema de
 optimización, y se analizan posibles soluciones aproximadas.
 
-\section{Consideraciones}
+\section{Definición del \textit{Hitting-Set Problem}}
 
-En la versión de decisión del \textit{Hitting-Set Problem}, una solución $C$ al
-problema es un subconjunto $C \subseteq A$, con $|C| \le k$ y $C \cap B_i \ne
-\emptyset$ para todo $B_i \in B$.
+Dado un conjunto de elemento $A$ de $n$ elementos, $m$ subconjuntos $B_1, B_2,
+\ldots, B_m$ de $A \ (B_i \subseteq A \\ \forall \ i)$, queremos el subconjunto
+$C \subseteq A$ de menor tamaño tal que $C$ tenga al menos un elemento de cada
+$B_i$ (es decir, $C \cap B_i \ne \emptyset$).
+
+\subsection{Como problema de decisión}
+
+Dado un conjunto de elemento $A$ de $n$ elementos, $m$ subconjuntos $B_1, B_2,
+\ldots, B_m$ de $A \ (B_i \subseteq A \\ \forall \ i)$, y un número $k$, ¿existe un
+subconjunto $C \subseteq A$ con $|C| \le k$ tal que $C$ tenga al menos un
+elemento de cada $B_i$ (es decir, $C \cap B_i \ne \emptyset$)?
 
 \section{Demostraciones}
 
@@ -28,9 +36,9 @@ El siguiente algoritmo es un posible verificador de soluciones del
 
 \lstinputlisting[language=Python]{code/verify.py}
 
-El algoritmo es de tiempo polinomial porque $|B| = m$, $|B_i| \le |A|$ para
-todo $B_i \in B$, $B \subseteq A$ y $C \subseteq A$, por lo que la complejidad
-es $\mathcal{O}(N^2m)$ con $N = |A|$.
+El algoritmo es de tiempo polinomial porque $|B| = m$, $B_i \subseteq A \
+\forall \ i$ y $C \subseteq A$, por lo que $|B_i| \le |A|$ y $|C| \le |A|$ y la
+complejidad es $\mathcal{O}(N^2m)$ con $N = |A|$.
 
 \subsection{\textit{Hitting-Set Problem} es \textit{NP}-Difícil}
 
