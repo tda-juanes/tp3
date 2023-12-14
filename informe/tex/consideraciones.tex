@@ -38,7 +38,21 @@ El siguiente algoritmo es un posible verificador de soluciones del
 
 El algoritmo es de tiempo polinomial porque $|B| = m$, $B_i \subseteq A \
 \forall \ i$ y $C \subseteq A$, por lo que $|B_i| \le |A|$ y $|C| \le |A|$ y la
-complejidad es $\mathcal{O}(N^2m)$ con $N = |A|$.
+complejidad es $\mathcal{O}(N^2m)$ con $N = |A|$. Esto es porque la complejidad
+del verificador esta dada por la mayor de las siguientes:
+
+\begin{itemize}
+    \item una comparación del tamaño de $C$ contra $k$ ($\mathcal{O}(1)$).
+
+    \item un loop por todos los elementos de $C$ verificando que esten en $A$
+    ($\mathcal{O}(N^2)$).
+
+    \item un loop por $m$ elementos (la cantidad de subsets), con otro loop
+    adentro de a lo sumo $N$ elementos cada uno (la cantidad de elementos en
+    $B_i$) que chequea si cada elemento esta en $C$ (de tamaño a los sumo $N$),
+    que si $C$ es una lista es una operación de tiempo lineal
+    ($\mathcal{O}(N^2m)$).
+\end{itemize}
 
 \subsection{\textit{Hitting-Set Problem} es \textit{NP}-Difícil}
 
