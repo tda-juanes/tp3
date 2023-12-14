@@ -1,27 +1,27 @@
-\section{Introducci\'on}
+\section{Introducción}
 
-En el presente trabajo pr\'actico se demuestra que el \textit{Hitting-Set
-Problem} como problema de desici\'on es NP-Completo, se desarrolla una
-soluci\'on con un algoritmo de \textit{Backtracking} para el mismo, como
-problema de optimizaci\'on, y se analizan posibles soluciones aproximadas.
+En el presente trabajo práctico se demuestra que el \textit{Hitting-Set
+Problem} como problema de decisión es NP-Completo, se desarrolla una solución
+con un algoritmo de \textit{Backtracking} para el mismo, como problema de
+optimización, y se analizan posibles soluciones aproximadas.
 
 \section{Consideraciones}
 
-En la versi\'on de decisi\'on del \textit{Hitting-Set Problem}, una soluci\'on
-$C$ al problema es un subconjunto $C \subseteq A$, con $|C| \le k$ y $C \cap
-B_i \ne \emptyset$ para todo $B_i \in B$.
+En la versión de decisión del \textit{Hitting-Set Problem}, una solución $C$ al
+problema es un subconjunto $C \subseteq A$, con $|C| \le k$ y $C \cap B_i \ne
+\emptyset$ para todo $B_i \in B$.
 
 \section{Demostraciones}
 
-Un problema de desici\'on $P$ es \textit{NP}-Completo si $P$ pertenece a
-\textit{NP} y $P$ es \textit{NP}-Dif\'icil.
+Un problema de decisión $P$ es \textit{NP}-Completo si $P$ pertenece a
+\textit{NP} y $P$ es \textit{NP}-Difícil.
 
-\subsection{\textit{Hitting-Set Problem} est\'a en \textit{NP}}
+\subsection{\textit{Hitting-Set Problem} está en \textit{NP}}
 
-Un problema pertence a $NP$ si una soluci\'on al mismo puede ser verificada en
-tiempo polinomial por una m\'aquina de Turing determin\'istica, o
-alternativamente, el problema puede ser resuelto en tiempo polinomial por una
-m\'aquina de Turing no determin\'istica.
+Un problema pertence a $NP$ si una solución al mismo puede ser verificada en
+tiempo polinomial por una máquina de Turing determinística, o alternativamente,
+el problema puede ser resuelto en tiempo polinomial por una máquina de Turing
+no determinística.
 
 El siguiente algoritmo es un posible verificador de soluciones del
 \textit{Hitting-Set Problem}:
@@ -32,25 +32,25 @@ El algoritmo es de tiempo polinomial porque $|B| = m$, $|B_i| \le |A|$ para
 todo $B_i \in B$, $B \subseteq A$ y $C \subseteq A$, por lo que la complejidad
 es $\mathcal{O}(N^2m)$ con $N = |A|$.
 
-\subsection{\textit{Hitting-Set Problem} es \textit{NP}-Dif\'icil}
+\subsection{\textit{Hitting-Set Problem} es \textit{NP}-Difícil}
 
-Para demostrar que el problema es \textit{NP}-Dif\'icil realizamos una
-reducci\'on polinomial de un problema \textit{NP}-Completo a nuestro problema,
+Para demostrar que el problema es \textit{NP}-Difícil realizamos una reducción
+polinomial de un problema \textit{NP}-Completo a nuestro problema,
 \href{https://en.wikipedia.org/wiki/Vertex_cover}{\underline{Vertex Cover}}.
 
 Un \textit{Vertex Cover} $V'$ de un grafo no dirigido $G = (V, E)$, es un
 conjunto de vertices $V' \subseteq V$, tal que para toda arista $(u, v) \in E$,
-$u \in V'\ \lor\ v \in V'$, o lo que es lo mismo, todas las aristas del grafo $G$
-tienen por lo menos una esquina en $V'$. La versi\'on de decis\'on del problema
-se trata de determinar si existe un \textit{Vertex Cover} de a lo sumo $k$
-v\'ertices.
+$u \in V'\ \lor\ v \in V'$, o lo que es lo mismo, todas las aristas del grafo
+$G$ tienen por lo menos una esquina en $V'$. La versión de decisión del
+problema se trata de determinar si existe un \textit{Vertex Cover} de a lo sumo
+$k$ vértices.
 
 Para reducir este problema al \textit{Hitting-Set Problem} creamos un subset
 $B_i = \{ u, v \}$ por cada arista $(u, v) \in E$, $A = V$ y $k = k$. Luego
-tomamos la soluci\'on del \textit{Hitting-Set Problem} $C$ y con ella generamos
-la soluci\'on del \textit{Vertex Cover} $V' = C$:
+tomamos la solución del \textit{Hitting-Set Problem} $C$ y con ella generamos
+la solución del \textit{Vertex Cover} $V' = C$:
 
 \lstinputlisting[language=Python]{code/vertex_cover.py}
 
-Esta reducci\'on se puede realizar en $\mathcal{O}(V^2)$, que es el costo de
+Esta reducción se puede realizar en $\mathcal{O}(V^2)$, que es el costo de
 crear un subset por cada arista en el grafo $G$.

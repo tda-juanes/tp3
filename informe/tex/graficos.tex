@@ -5,9 +5,9 @@ elementos, con la cantidad de subsets y la cantidad de elementos por subset
 siendo proporcional a la cantidad de elementos.
 
 Para asegurar la validez de las comparaciones todas las mediciones fueron
-realizadas sobre los mismos sets de datos para los m\'etodos que est\'an siendo
+realizadas sobre los mismos sets de datos para los métodos que están siendo
 comparados. Los elementos fueron generados por los valores pseudoaleatorios del
-lenguaje (el m\'odulo \texttt{random}) con la misma \textit{seed}.
+lenguaje (el módulo \texttt{random}) con la misma \textit{seed}.
 
 \subsection{Backtracking vs. Programación Lineal}
 
@@ -19,7 +19,7 @@ lenguaje (el m\'odulo \texttt{random}) con la misma \textit{seed}.
 Backtracking obtiene mejores tiempo de ejecución que programación lineal para
 encontrar la solución óptima.
 
-\subsection{Algoritmos de aproximaci\'on}
+\subsection{Algoritmos de aproximación}
 
 \begin{figure}[H]
     \centering
@@ -29,7 +29,7 @@ encontrar la solución óptima.
 
 Notar la diferencia de tiempos (eje y) entre greedy y programación lineal.
 
-\subsection{Cota de la relajaci\'on lineal}
+\subsection{Cota de la relajación lineal}
 
 Se realizaron mediciones para verificar la cota calculada empiricamente con un
 valor de $r(A) = 20$:
@@ -40,7 +40,7 @@ valor de $r(A) = 20$:
 \end{figure}
 
 Vemos que $\frac{A(I)}{z(I)}$ se mantiene por debajo de la cota calculada. Cabe
-aclarar que a partir de los 175 elementos se utiliz\'o una cota inferior para
-$z(I)$, por lo que se ve un pico en el gr\'afico a partir de ah\'i, esta cota
-inferior fue calculada por el mismo algoritmo de programaci\'on lineal relajada
+aclarar que a partir de los 175 elementos se utilizó una cota inferior para
+$z(I)$, por lo que se ve un pico en el gráfico a partir de ahí, esta cota
+inferior fue calculada por el mismo algoritmo de programación lineal relajada
 porque los volumenes de datos eran inmanejables para el algoritmo exacto.
