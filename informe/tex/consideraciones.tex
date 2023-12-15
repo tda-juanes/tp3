@@ -76,3 +76,27 @@ la solución del \textit{Vertex Cover} $V' = C$:
 
 Esta reducción se puede realizar en $\mathcal{O}(V^2)$, que es el costo de
 crear un subset por cada arista en el grafo $G$.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=0.585\linewidth]{img/vertex-cover.png}
+        \caption{Input de \textit{Vertex Cover}}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+        \centering
+        \includegraphics[width=0.6\linewidth]{img/hitting-set.png}
+        \caption{Input de \textit{Hitting-Set}}
+    \end{subfigure}
+    \caption{Reducción de \textit{Vertex Cover} a \textit{Hitting-Set Problem}}
+\end{figure}
+
+En el caso de la figura, al generar un set con los dos vértices que componen a
+cada una de las aristas, el problema de \textit{Vertex Cover} para el grafo dado
+se vería reducido al \textit{Hitting-Set Problem} para los sets $\{A,B\}$,
+$\{A,C\}$ y $\{C,D\}$.
+
+Se puede comprobar que el conjunto de soluciones para el \textit{Hitting-Set Problem}
+es $\{\{A,D\},\{A,C\},\{C,B\}\}$, que no es ni más ni menos que el conjunto de
+soluciones para \textit{Vertex Cover}.
